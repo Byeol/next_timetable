@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/common :: header" />
+	<body>
+		<div th:replace="fragments/common :: navbar"/>
+
+		<div class="container" role="main">
+			<div class="page-header">
+				<h1 th:text="#{getcalendar.headerMessage}"/>
+			</div>
+
+			<div class="jumbotron">
+				<h2 th:text="#{getcalendar.createdHeading}"/>
+				<p th:text="#{getcalendar.createdMessage}"/>
+				<p th:text="#{getcalendar.getiCalLinkMessage}" id="getiCalLink"/>
+				<p th:text="#{getcalendar.importTipMessage}"/>
+				<p>
+					<a class="btn btn-primary btn-lg" role="button" id="openCalendar" th:text="#{getcalendar.openCalendarButton}"/>
+					<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#detailModal" th:text="#{getcalendar.viewDetailButton}"/>
+				</p>
+			</div>
+
+			<div class="modal fade" id="detailModal" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="detailModalLabel" th:text="#{getcalendar.detailHeading}"/>
+						</div>
+						<div class="modal-body">
+							<p th:text="#{getcalendar.detailDescription}"/>
+							<p th:text="#{getcalendar.importToMacCalendarMessage}"/>
+							<p th:text="#{getcalendar.importToGoogleCalendarMessage}"/>
+							<a th:href="#{getcalendar.importToGoogleCalendarLink}" target="_blank" th:text="#{getcalendar.importToGoogleCalendarLinkMessage}"/>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal" th:text="#{closeButton}"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr/>
+			<div th:replace="fragments/common :: footer"/>
+		</div>
+
+		<script th:replace="fragments/libs :: jquery"/>
+		<script th:replace="fragments/libs :: bootstrap"/>
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+
+		function setNavbar() {
+			$ ( "#navbar-timetable" ).each( function() {
+				$ ( this ).addClass( "active" );
+			});
+		}
+
+		function setiCalLink() {
+			var link = [[@{/calendar/getical.do}]] + "?" + [[#{courseNoParam}]] + "=" + [[${courseNo}]];
+			$( "#openCalendar" ).attr( "href", "webcal://" + location.host + link );
+			$( "#getiCalLink" ).append( " " + location.protocol + '//' + location.host + link );
+		}
+
+		$( document ).ready( setNavbar );
+
+		$( document ).ready( setiCalLink );
+
+		/*]]>*/
+		</script>
+	</body>
+</html>

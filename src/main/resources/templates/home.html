@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/common :: header" />
+	<body>
+		<div th:replace="fragments/common :: navbar"/>
+
+		<div class="container" role="main">
+			<div class="jumbotron">
+				<h1 th:text="#{home.welcomeMessage}"/>
+				<p th:text="#{home.welcomeDescription}"/>
+				<p><a th:text="#{home.startButton}" href="./maketimetable.do" class="btn btn-primary btn-lg" role="button"/></p>
+			</div>
+
+			<hr/>
+			<div th:replace="fragments/common :: footer"/>
+		</div>
+
+		<script th:replace="fragments/libs :: jquery"/>
+		<script th:replace="fragments/libs :: bootstrap"/>
+		<script>
+
+		function setNavbar() {
+			$ ( "#navbar-home" ).each( function() {
+				$ ( this ).addClass( "active" );
+			});
+		}
+
+		$( document ).ready( setNavbar );
+
+		</script>
+	</body>
+</html>

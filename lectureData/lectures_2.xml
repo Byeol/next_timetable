@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<lectures year="2014" semester="1" grade="2">
+	<lecture sequence="">
+		<subjectName lang="ko"></subjectName>
+		<courses>
+			<course sequence="">
+				<classRoom></classRoom>
+				<professorName lang="ko"></professorName>
+				<schedules>
+					<schedule>
+						<dayWeek></dayWeek>
+						<timeStart></timeStart>
+						<timeEnd></timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+</lectures>

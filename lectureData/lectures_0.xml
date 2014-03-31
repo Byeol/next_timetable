@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<lectures year="2014" semester="1" grade="0">
+	<lecture sequence="24">
+		<subjectName lang="ko">선형대수</subjectName>
+		<courses>
+			<course sequence="122">
+				<placement>1</placement>
+				<classRoom>Prompt 1-3</classRoom>
+				<professorName lang="ko">이남영</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>5</dayWeek>
+						<timeStart>6</timeStart>
+						<timeEnd>7</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+</lectures>

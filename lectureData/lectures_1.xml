@@ -1,0 +1,284 @@
+<?xml version="1.0" ?>
+<lectures year="2014" semester="1" grade="1">
+	<lecture sequence="64">
+		<subjectName lang="ko">Business English</subjectName>
+		<courses>
+			<course sequence="130">
+				<placement>1</placement>
+				<classRoom>Prompt 1-3</classRoom>
+				<professorName lang="ko">조혜연</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>3</dayWeek>
+						<timeStart>11</timeStart>
+						<timeEnd>12</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="131">
+				<placement>2</placement>
+				<classRoom>Prompt 1-3</classRoom>
+				<professorName lang="ko">조혜연</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>5</dayWeek>
+						<timeStart>11</timeStart>
+						<timeEnd>12</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+	<lecture sequence="18">
+		<subjectName lang="ko">NEXT 소프트웨어 개론</subjectName>
+		<courses>
+			<course sequence="123">
+				<placement>1</placement>
+				<classRoom>Prompt 4-14</classRoom>
+				<professorName lang="ko">이익훈</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>2</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="124">
+				<placement>2</placement>
+				<classRoom>Prompt 4-14</classRoom>
+				<professorName lang="ko">이익훈</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>2</dayWeek>
+						<timeStart>6</timeStart>
+						<timeEnd>7</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="125">
+				<placement>3</placement>
+				<classRoom>Prompt 4-14</classRoom>
+				<professorName lang="ko">이익훈</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>4</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="126">
+				<placement>4</placement>
+				<classRoom>Prompt 4-14</classRoom>
+				<professorName lang="ko">이익훈</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>4</dayWeek>
+						<timeStart>6</timeStart>
+						<timeEnd>7</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+	<lecture sequence="67">
+		<subjectName lang="ko">게임 제작 개론</subjectName>
+		<courses>
+			<course sequence="140">
+				<placement>1</placement>
+				<classRoom>Prompt 3-10</classRoom>
+				<professorName lang="ko">구승모</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>3</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+	<lecture sequence="66">
+		<subjectName lang="ko">디자인 프로젝트</subjectName>
+		<courses>
+			<course sequence="143">
+				<placement>1</placement>
+				<classRoom></classRoom>
+				<professorName lang="ko">서경진</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>2</dayWeek>
+						<timeStart>9</timeStart>
+						<timeEnd>11</timeEnd>
+					</schedule>
+					<schedule>
+						<dayWeek>4</dayWeek>
+						<timeStart>9</timeStart>
+						<timeEnd>11</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+	<lecture sequence="27">
+		<subjectName lang="ko">운영체제</subjectName>
+		<courses>
+			<course sequence="138">
+				<placement>1</placement>
+				<classRoom>Prompt 1-3</classRoom>
+				<professorName lang="ko">배영현</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>3</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+	<lecture sequence="65">
+		<subjectName lang="ko">인문사회학1</subjectName>
+		<courses>
+			<course sequence="139">
+				<placement>1</placement>
+				<classRoom>NEXT HALL</classRoom>
+				<professorName lang="ko">함석진</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>3</dayWeek>
+						<timeStart>6</timeStart>
+						<timeEnd>8</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+	<lecture sequence="72">
+		<subjectName lang="ko">자료구조 및 알고리즘1</subjectName>
+		<courses>
+			<course sequence="117">
+				<placement>1</placement>
+				<classRoom>Prompt 4-12</classRoom>
+				<professorName lang="ko">김동진</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>1</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+					<schedule>
+						<dayWeek>4</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="118">
+				<placement>2</placement>
+				<classRoom>Prompt 3-10</classRoom>
+				<professorName lang="ko">김종규</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>1</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+					<schedule>
+						<dayWeek>4</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="120">
+				<placement>3</placement>
+				<classRoom>Prompt 4-12</classRoom>
+				<professorName lang="ko">김동진</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>2</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+					<schedule>
+						<dayWeek>5</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="121">
+				<placement>4</placement>
+				<classRoom>Prompt 3-8</classRoom>
+				<professorName lang="ko">김종규</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>2</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+					<schedule>
+						<dayWeek>5</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>4</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+	<lecture sequence="19">
+		<subjectName lang="ko">프로그래밍 연습</subjectName>
+		<courses>
+			<course sequence="113">
+				<placement>1</placement>
+				<classRoom>Prompt 3-10</classRoom>
+				<professorName lang="ko">박은종</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>5</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>5</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="114">
+				<placement>2</placement>
+				<classRoom>Prompt 3-10</classRoom>
+				<professorName lang="ko">박은종</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>5</dayWeek>
+						<timeStart>9</timeStart>
+						<timeEnd>11</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="116">
+				<placement>3</placement>
+				<classRoom>Prompt 4-11</classRoom>
+				<professorName lang="ko">조영호</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>5</dayWeek>
+						<timeStart>3</timeStart>
+						<timeEnd>5</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+			<course sequence="119">
+				<placement>4</placement>
+				<classRoom>Prompt 4-11</classRoom>
+				<professorName lang="ko">정호영</professorName>
+				<schedules>
+					<schedule>
+						<dayWeek>5</dayWeek>
+						<timeStart>9</timeStart>
+						<timeEnd>11</timeEnd>
+					</schedule>
+				</schedules>
+			</course>
+		</courses>
+	</lecture>
+</lectures>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/common :: header" />
+	<body>
+		<div th:replace="fragments/common :: navbar"/>
+
+		<div class="container" role="main">
+			<div class="jumbotron">
+				<h1 th:text="#{about.aboutMessage}"/>
+				<p th:text="#{about.aboutDescription}"/>
+				<p th:text="#{about.contactDescription}"/>
+			</div>
+
+			<div>
+				<p><span class="glyphicon glyphicon-chevron-right"></span><b th:text="#{about.aboutRESTAPIMessage}"/></p>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title" th:text="#{about.RESTReferenceHeading}"/>
+					</div>
+					<div class="panel-body">
+						<b th:text="@{/}"/><b th:text="#{lectureRestPath}"/> <span th:text="#{about.RESTReferenceAllLectureMessage}"/><br/>
+						<b th:text="@{/}"/><b th:text="#{lectureRestPath}"/><b>/</b><i th:text="#{about.RESTReferenceLectureId}"/>  <span th:text="#{about.RESTReferenceSelectedLectureMessage}"/><br/>
+						<b th:text="@{/}"/><b th:text="#{lectureRestPath}"/><b>/</b><i th:text="#{about.RESTReferenceLectureId}"/> <b>/</b><b th:text="#{courseRestPath}"/> <span th:text="#{about.RESTReferenceSelectedLectureCourseMessage}"/><br/>
+						<b th:text="@{/}"/><b th:text="#{courseRestPath}"/> <span th:text="#{about.RESTReferenceAllCourseMessage}"/><br/>
+						<b th:text="@{/}"/><b th:text="#{courseRestPath}"/><b>/</b><i th:text="#{about.RESTReferenceCourseId}"/>  <span th:text="#{about.RESTReferenceSelectecCourseMessage}"/><br/>
+						<b th:text="@{/}"/><b th:text="#{courseRestPath}"/><b>/</b><i th:text="#{about.RESTReferenceCourseId}"/> <b>/</b><b th:text="#{scheduleRestPath}"/> <span th:text="#{about.RESTReferenceSelectedCourseScheduleMessage}"/>
+					</div>
+				</div>
+			</div>
+
+			<hr/>
+			<div th:replace="fragments/common :: footer"/>
+		</div>
+
+		<script th:replace="fragments/libs :: jquery"/>
+		<script th:replace="fragments/libs :: bootstrap"/>
+	</body>
+</html>

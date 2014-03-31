@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/common :: header" />
+	<body>
+		<div th:replace="fragments/common :: navbar"/>
+
+		<div class="container" role="main">
+			<div class="page-header">
+				<div class="row">
+					<div class="col-sm-7">
+						<h1 th:text="#{maketimetable.headerMessage}"/>
+					</div>
+					<div class="col-sm-2"/>
+					<div class="col-sm-2">
+						<a class="btn btn-primary btn-lg" role="button" id="getCalendar" th:text="#{maketimetable.makeTimetableButton}"/>
+						<form style="display: hidden" action="calendar/getcalendar.do" method="POST" id="getCalendarForm">
+							<input type="hidden" id="courseNo" th:name="#{courseNoParam}"/>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="alert" id="alertMessage"/>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<h2 th:text="#{maketimetable.stepOneHeading}"/>
+					<p th:text="#{maketimetable.stepOneDescription}"/>
+				</div>
+				<div class="col-sm-4">
+					<h2 th:text="#{maketimetable.stepTwoHeading}"/>
+					<p th:text="#{maketimetable.stepTwoDescription}"/>
+				</div>
+				<div class="col-sm-4">
+					<h2 th:text="#{maketimetable.stepThreeHeading}"/>
+					<p th:text="#{maketimetable.stepThreeDescription}"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<h3 th:text="#{maketimetable.selectLectureMessage}"/>
+					<div class="list-group" id="lectureList">
+						<a class="list-group-item empty" th:text="#{maketimetable.selectLectureEmptyMessage}"/>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<h3 th:text="#{maketimetable.selectCourseMessage}"/>
+					<div class="list-group" id="courseList">
+						<a class="list-group-item empty" th:text="#{maketimetable.selectCourseEmptyMessage}"/>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<h3 th:text="#{maketimetable.courseCartMessage}"/>
+					<div class="list-group" id="courseCart">
+						<a class="list-group-item empty" th:text="#{maketimetable.courseCartEmptyMessage}"/>
+						<a class="list-group-item template">
+							<div class="row">
+								<div class="col-sm-10">
+									<h4 class="list-group-item-heading courseName" />
+								</div>
+								<div class="col-sm-2">
+									<button type="button" class="btn btn-xs btn-link removeCourse">
+										<span class="glyphicon glyphicon-minus" />
+									</button>
+								</div>
+							</div>
+							<p class="list-group-item-text courseDescription" />
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<hr/>
+			<div th:replace="fragments/common :: footer"/>
+		</div>
+
+		<script th:replace="fragments/libs :: jquery"/>
+		<script th:replace="fragments/libs :: bootstrap"/>
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+
+		function setNavbar() {
+			$ ( "#navbar-timetable" ).each( function() {
+				$ ( this ).addClass( "active" );
+			});
+		}
+
+		function getLectures( jQuery ) {
+			$( "#alertMessage" ).hide();
+
+			$.ajax({
+				url: [[#{lectureRestPath}]]
+				,dataType: "json"
+				,success: function( lectures ) {
+					$( "#lectureList" ).empty();
+					$.each( lectures, function( idx, lecture ) {
+						var lectureItem = $( "<a/>" ).addClass( "list-group-item" );
+						lectureItem = lectureItem.addClass( "lecture" ).text( lecture.subjectNameKo ).attr( "lectureSequence",lecture.lectureSequence ).attr( "subjectNameKo", lecture.subjectNameKo );
+						$( "#lectureList" ).append( lectureItem.addClass( "getCourses" ).attr( "href", "javascript:void(0);" ));
+					});
+					$( "#lectureList" ).listview( "refresh" );
+				}
+			});
+		}
+
+		function getCourses( jQuery ) {
+			$( "#alertMessage" ).hide();
+
+			$( "#lectureList .lecture" ).each( function() {
+				$( this ).removeClass( "active" );
+			});
+			$( this ).addClass( "active" );
+
+			var lectureSequence = $( this ).attr("lectureSequence");
+			var subjectNameKo = $( this ).attr("subjectNameKo");
+
+			$.ajax({
+				url: [[#{lectureRestPath}]] + "/" + lectureSequence + "/" + [[#{courseRestPath}]]
+				,dataType: "json"
+				,success: function( courses ){
+					$( "#courseList" ).empty();
+					$.each(courses, function( idx, course ){
+						var courseItem = $( "<a/>" ).addClass( "list-group-item" );
+						courseItem = courseItem.addClass( "course" ).text( course.professorNameKo + " " + [[#{professorTitle}]] + " (" + course.placement + [[#{placementTitle}]] + ")" ).attr( "lectureSequence", lectureSequence ).attr( "courseSequence", course.courseSequence ).attr( "subjectNameKo", subjectNameKo ).attr( "placement", course.placement ).attr( "professorNameKo", course.professorNameKo );
+						$( "#courseList" ).append( courseItem.addClass( "addCourse" ).attr( "href", "javascript:void(0);" ));
+					})
+					$( "#courseList" ).listview( "refresh" );
+				}
+			});
+		}
+
+		function addCourse( jQuery ) {
+			$( "#alertMessage" ).hide();
+			$( "#courseCart .empty" ).hide();
+
+			var courseSequence = $( this ).attr( "courseSequence" );
+			var courseExist = false;
+
+			$( "#courseCart .course" ).each( function() {
+				if ( $( this ).attr( "courseSequence" ) == courseSequence )
+					courseExist = true;
+			});
+
+			if ( courseExist ) {
+				$( "#alertMessage" ).addClass( "alert-danger" );
+				$( "#alertMessage" ).text( [[#{maketimetable.courseExistAlertMessage}]] );
+				$( "#alertMessage" ).show();
+			} else {
+				var cartItem = $( "#courseCart .template" ).clone ( true ).removeClass( "template" ).addClass( "course" ).show();
+				$( cartItem ).find( ".courseName" ).text( $( this ).attr( "subjectNameKo" ) + " (" + $( this ).attr( "placement" ) + [[#{placementTitle}]] + ")" );
+				$( cartItem ).find( ".courseDescription" ).text( $( this ).attr( "professorNameKo" ) + " " + [[#{professorTitle}]] );
+				$( cartItem ).attr( "courseSequence", $( this ).attr( "courseSequence" ) );
+				$( "#courseCart" ).append( cartItem );
+			}
+		}
+
+		function removeCourse( jQuery ) {
+			var course = $( this ).parents( ".course" );
+			course.remove();
+
+			var courseList = getCourseCart();
+
+			if( courseList == "" )
+				$( "#courseCart .empty" ).show();
+
+		}
+
+		function getCourseCart( jQuery ) {
+			var courseList = "";
+
+			$( "#courseCart .course" ).each( function() {
+				var courseSequence = $( this ).attr( "courseSequence" );
+				if ( courseList == "" )
+					courseList += courseSequence;
+				else
+					courseList += "," + courseSequence;
+			});
+
+			return courseList;
+		}
+
+		function getCalendar( jQuery ) {
+			var courseList = getCourseCart();
+
+			if( courseList == "" )
+				var cartEmpty = true;
+
+			if( cartEmpty ) {
+				$( "#alertMessage" ).addClass( "alert-danger" );
+				$( "#alertMessage" ).text( [[#{maketimetable.cartEmptyAlertMessage}]] );
+				$( "#alertMessage" ).show();
+			} else {
+				$( "#courseNo" ).val(courseList);
+				$( "#getCalendarForm" ).submit();
+			}
+		}
+
+		$( document ).ready( setNavbar );
+
+		$( document ).ready( getLectures );
+
+		$( document ).ready( function(){
+			$( "#lectureList" ).on( "click", ".getCourses", getCourses );
+			$( "#courseList" ).on( "click", ".addCourse", addCourse );
+			$( "#courseCart" ).on( "click", ".removeCourse", removeCourse );
+			$( "#getCalendar" ).click( getCalendar );
+			$( "#courseCart .template" ).hide();
+		});
+
+		/*]]>*/
+		</script>
+	</body>
+</html>
