@@ -43,6 +43,9 @@
 
 		<footer th:fragment="footer">
 			<p><span th:text="#{footer.footerMessage}"/> <a th:href="#{footer.developerLink}" target="_blank" th:text="#{app.developerName}"/>.</p>
+			<div class="container text-right">
+				<iframe th:src="#{footer.forkLink}" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"/>
+			</div>
 		</footer>
 	</body>
 </html>
