@@ -269,13 +269,13 @@
 			</course>
 			<course sequence="119">
 				<placement>4</placement>
-				<classRoom>Prompt 4-11</classRoom>
+				<classRoom>Prompt 2-4</classRoom>
 				<professorName lang="ko">정호영</professorName>
 				<schedules>
 					<schedule>
 						<dayWeek>5</dayWeek>
-						<timeStart>9</timeStart>
-						<timeEnd>11</timeEnd>
+						<timeStart>8</timeStart>
+						<timeEnd>10</timeEnd>
 					</schedule>
 				</schedules>
 			</course>
