@@ -25,6 +25,10 @@ public interface IConstants {
 	final static Integer eventStartMonth = 3;
 	final static Integer eventStartDay = 3;
 	final static Integer eventStartTime = 8;
+	final static Integer eventEndYear = 2014;
+	final static Integer eventEndMonth = 6;
+	final static Integer eventEndDay = 20;
+	final static Integer eventEndTime = 24;
 
 	final static String iCalLanguageCode = "KO";
 	final static String iCalFilePath = "ical";

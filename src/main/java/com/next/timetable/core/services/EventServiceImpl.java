@@ -70,8 +70,10 @@ public class EventServiceImpl implements EventService {
 		event.setDateStart(df.parse(startDate + " " + startTime));
 		event.setDateEnd(df.parse(startDate + " " + endTime));
 
+		String endDate=String.valueOf(IConstants.eventEndYear) + "-" + String.valueOf(IConstants.eventEndMonth) + "-" + (IConstants.eventEndDay) + " " + IConstants.eventEndTime + ":" + 0;
 		Recurrence.Builder recur = new Recurrence.Builder(Frequency.WEEKLY);
 		recur.byDay(getDayOfWeek(schedule.getDayWeek()));
+		recur.until(df.parse(endDate));
 		event.setRecurrenceRule(recur.build());
 
 		return event;
